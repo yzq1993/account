@@ -1,0 +1,45 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  <div class="back" (click)="back()"><img src="./assets/image/arrow_down.png"></div>
+  <div class="typeswitch">
+    <div>
+      <p [class.active]="type==1" (click)="changeType(1)">支出</p>
+      <p [class.active]="type==2" (click)="changeType(2)">收入</p>
+    </div>
+  </div>
+  <div class="typelist">
+    <div *ngFor="let item of typeList ; index as index;" class="item" [class.active]="index==active" (click)="changeActive(index)">
+      <div class="icon"><img [src]="index==active?item.activeIcon:item.icon"></div>
+      <p>{{item.name}}</p>
+    </div>
+  </div>
+  <div class="keyboard">
+    <div class="head">
+      <div class="remark"><span>备注：</span><input [(ngModel)]="remark" (input)=changeRemark()></div>
+      <div>{{money}}</div>
+    </div>
+    <div class="box">
+      <div class="num">
+        <div (click)="setMoney('7')">7</div>
+        <div (click)="setMoney('8')">8</div>
+        <div (click)="setMoney('9')">9</div>
+        <div (click)="setMoney('4')">4</div>
+        <div (click)="setMoney('5')">5</div>
+        <div (click)="setMoney('6')">6</div>
+        <div (click)="setMoney('1')">1</div>
+        <div (click)="setMoney('2')">2</div>
+        <div (click)="setMoney('3')">3</div>
+        <div (click)="setMoney('.')">.</div>
+        <div (click)="setMoney('0')">0</div>
+        <div (click)="cancelMoney()"><img src="./assets/image/cancel_icon.png"></div>
+      </div>
+      <div class="other">
+        <div class="picker" (click)=changeDate()>
+          {{date==now?'今天':date}}
+        </div>
+        <div class="done" (click)=done()>完 成</div>
+      </div>
+    </div>
+  </div>
+</div>
+

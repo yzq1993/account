@@ -1,0 +1,19 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="am-picker" *ngIf="show">
+	<div class="am-shade" (click)=close></div>
+	<div class="am-box {{activeClass}}">
+		<div class="am-head">
+			<input type="button" [value]=closetext (click)=close()>
+			<h2>{{title}}</h2>
+			<input type="button" [value]=oktext (click)=success()>
+		</div>
+		<div class="am-ul">
+			<div class="am-item" *ngFor="let item of option ; index as m;" (touchmove)=touchmove($event,m) (touchstart)=touchstart($event,m) (touchend)=touchend($event,m)>
+				<ul [class]=endClass[m]  [style]="transform[m]">
+					<li *ngFor="let key of item"  [class]="key==value[m]?'active':''">{{key}}</li>
+				</ul>
+			</div>
+			<div class="am-high"></div>
+		</div>
+	</div>
+</div>

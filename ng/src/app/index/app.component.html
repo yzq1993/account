@@ -1,0 +1,61 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="main">
+	<div class="container">
+	  <div class="head">
+      <div class="picker box" (click)=changeDate()>
+        <div class="label">{{now.year}}年</div>
+        <div>{{now.month}}月<img src="./assets/image/arrow_down.png"></div>
+      </div>
+	    <div class="box">
+	      <div class="label">收入</div>
+	      <div>{{finance.income|number:'1.0-2'}}</div>
+	    </div>
+	    <div class="box">
+	      <div class="label">支出</div>
+	      <div>{{finance.defray|number:'1.0-2'}}</div>
+	    </div>
+	    <div class="box" (click)="budget.show=true">
+	      <div class="label">剩余预算</div>
+	      <div *ngIf="budget.status==2">{{finance.budget|number:'1.0-2'}}</div>
+	      <div *ngIf="budget.status!=2">未设置</div>
+	    </div>
+	  </div>
+	  <div class="list" *ngIf="list.length">
+	  	<div *ngFor="let item of list ; index as index;" >
+		    <div *ngIf=item.children.length>
+		      <div class="item_head">
+		        <div class="info"  [class.del]="delShow.key==index&&delShow.show"  (touchstart)="startMoveItem(index,$event)" (touchend)="moveItem(index,$event)">
+		          <div>{{item.date}}日</div>
+		          <div><p *ngIf="item.income">收入：{{item.income|number:'1.0-2'}}</p><p *ngIf="item.defray">支出：{{item.defray|number:'1.0-2'}}</p></div>
+		        </div>
+		        <div class="btn" (click)="delItem(index)">删除</div>
+		      </div>
+		      <div class="item" *ngFor="let child of item.children; index as key;">
+		        <div class="info" [class.del]="delShow.key==(index+'-'+key)&&delShow.show" (touchstart)="startMoveItem(index+'-'+key,$event)" (touchend)="moveItem(index+'-'+key,$event)">
+		          <div><img [src]=child.icon><p class="label">{{child.name}}<span *ngIf="child.remark">（{{child.remark}}）</span></p></div>
+		          <div [class]="child.type==2?'add':''">{{child.type==2?'+':''}}{{child.money|number:'1.0-2'}}</div>
+		        </div>
+		        <div class="btn">
+		        	<a routerLink="add/{{child.id}}">
+		            <img src="../assets/image/edit_icon.png">
+		          </a>
+		          <div (click)="delItem(index,key)"><img src="../assets/image/del_icon.png"></div>
+		        </div>
+		      </div>
+		    </div>
+	    </div>
+	  </div>
+	</div>
+	<div class="setBudget" *ngIf="budget.show">
+	  <div class="setBudgetBox">
+	    <div class="title">设置每月预算</div>
+	    <input focus type="number" [(ngModel)]=budget.money>
+	    <div class="btns">
+	      <button type="primary" (click)=setbudget()>确 定</button>
+	      <button (click)=cancelbudget()>暂不设置</button>
+	    </div>
+	  </div>
+	</div>
+</div>
+<i-tab></i-tab>
+<i-login (login)=init() [value]=isLogin></i-login>

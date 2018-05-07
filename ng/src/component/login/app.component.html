@@ -1,0 +1,25 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="login" *ngIf=!value>
+  <div class="loginBox" *ngIf="isLogin==1">
+    <input focus [(ngModel)]=form.email placeholder="请输入邮箱">
+    <input type="password" [(ngModel)]=form.password placeholder="请输入密码">
+    <button (click)=gologin()>登 录</button>
+    <div class="note">
+      <span (click)=changeTab(3)>忘记密码</span>
+      <span (click)=changeTab(2)>注册账号</span>
+    </div>
+  </div>
+	<div class="loginBox" *ngIf="isLogin!=1">
+    <h2>{{isLogin==2?'注 册':'重置密码'}}</h2>
+    <input focus [(ngModel)]=form.email placeholder="请输入邮箱">
+    <div class="two">
+      <div><input [(ngModel)]=form.code type="number" placeholder="请输入验证码"></div>
+      <div><button (click)=sendCode()  [class.lock]="!!codeTime">{{codeTime?codeTime+'s':'发送验证码'}}</button></div>
+    </div>
+    <input type="password" [(ngModel)]=form.password placeholder="请输入密码">
+    <button (click)=register() *ngIf="isLogin!=2">注 册</button>
+    <button (click)=changepwd() *ngIf="isLogin!=3">确 定</button>
+    <div class="note"><span></span><span (click)=changeTab(1)>去登录</span></div>
+  </div>
+</div>
+

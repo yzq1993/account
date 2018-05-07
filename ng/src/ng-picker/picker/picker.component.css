@@ -1,0 +1,119 @@
+.am-picker{
+	position: fixed;top:0;left:0;
+	height:100%;width:100%;
+	line-height: 35px;
+	font-size: 16px;
+	color:#999;
+	z-index: 100000
+}
+.am-picker .am-shade{
+	position: fixed;height:100%;width:100%;
+	background: rgba(0,0,0,0.3);
+	-webkit-backdrop-filter:saturate(180%) blur(4px) brightness(2)
+}
+
+.am-picker .am-box{
+	width:100%;
+	background: #fff;
+	position: absolute;bottom:-280px;left:0;
+	-webkit-transition: bottom 0.2s;
+	transition: bottom 0.2s;
+	text-align: center;
+	height:280px;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	   -moz-box-orient: vertical;
+	   -moz-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+
+}
+.am-picker .am-box.active{
+	bottom:0;
+} 
+
+.am-picker .am-head{
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	height:40px;line-height: 40px;
+	background: #fff;
+	border-bottom:1px solid #eee;
+}
+.am-picker .am-head input{
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+	        appearance: none;
+	border:none;
+	outline: none;
+	background: none;
+	font-size:14px;
+	padding:0 20px;
+	color:#26a2ff;
+	width:72px;
+}
+.am-picker .am-head h2{
+	font-size:16px;
+	-webkit-box-flex:1;
+	   -moz-box-flex:1;
+	    -ms-flex:1;
+	        flex:1;
+	margin:0;
+	font-weight: normal;
+	color:#333;
+}
+.am-picker .am-ul{
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-flex:1;
+	   -moz-box-flex:1;
+	    -ms-flex:1;
+	        flex:1;
+	-webkit-mask-box-image:linear-gradient(to top, transparent, transparent 5%, white 20%, white 80%, transparent 95%, transparent);
+	position: relative;
+}
+.am-picker  .am-item{
+	-webkit-box-flex:1;
+	   -moz-box-flex:1;
+	    -ms-flex:1;
+	        flex:1;
+	overflow: hidden;
+}
+.am-picker .am-ul ul{
+	padding: 0;
+	margin:0;
+	list-style: none;
+	margin-top:90px;
+}
+.am-picker .am-ul ul.end{
+	-webkit-transition :-webkit-transform 0.2s;
+	transition :-webkit-transform 0.2s;
+	transition :transform 0.2s;
+	transition :transform 0.2s, -webkit-transform 0.2s;
+}
+.am-picker .am-ul li{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.am-picker .am-ul li.active{
+	color:#333;
+}
+.am-picker .am-high{
+	position: absolute;top:90px;left:0;
+	width:100%;height:35px;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	border: 1px solid #eee;
+	border-left:0;
+	border-right: 0;
+	z-index: -1
+}

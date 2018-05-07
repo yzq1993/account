@@ -1,0 +1,24 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="tab">
+  <div class="box">
+    <a routerLink="/" *ngIf="path!='/'">
+      <img src="./assets/image/list_icon.png">
+      <p>明细</p>
+    </a>
+    <div *ngIf="path=='/'">
+      <img src="./assets/image/list_icon.png">
+      <p>明细</p>
+    </div>
+    <a routerLink="/count" *ngIf="path=='/'">
+      <img src="./assets/image/count_icon.png">
+      <p>统计</p>
+    </a>
+    <div *ngIf="path!='/'">
+      <img src="./assets/image/count_icon.png">
+      <p>统计</p>
+    </div>
+  </div>
+  <a routerLink="/add" class="add">
+    <img src="./assets/image/add_icon.png">
+  </a>
+</div>

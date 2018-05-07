@@ -1,0 +1,97 @@
+.login{
+  position:fixed;top:0;left:0;
+  z-index: 10000;
+  height: 100%;width:100%;
+  background: rgba(0,0,0,0.5);
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.loginBox{
+  margin-top: -2.666667rem;
+  width: 6.4rem;
+  background: #fff;
+  border-radius: 0.133333rem;
+  padding: 0.533333rem;
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
+.loginBox h2{
+  text-align: center;
+  font-size: 16px
+}
+.login input{
+  margin-top: 0.266667rem;
+  height: 1.173333rem;
+  padding: 0 0.266667rem;
+  border:1px solid #ccc;
+  border-radius: 0.106667rem;
+  font-size: 14px;
+  width: 100%;
+  outline: none;
+  display: block;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.login button{
+  width: 100%;
+  margin-top: 0.533333rem;
+  height: 1.173333rem;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font-size: 16px;
+  color: #fff;
+  background: #1AAD19;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  display: block
+}
+.loginBox .two{
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.loginBox .two div{
+  width: 47.5%
+}
+.loginBox .two button{
+  margin-top: 0.266667rem;
+  font-size: 14px
+}
+.loginBox .two button.lock{
+  background: #ccc
+}
+.login .note{
+  font-size: 12px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #03A9F4;
+  margin-top: 0.266667rem;
+}

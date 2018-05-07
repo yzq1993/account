@@ -1,0 +1,34 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="main">
+	<div class="select">
+    <div class="picker" (click)=changeDate()>
+      {{now.year}}年{{now.month}}月<img src="./assets/image/arrow_down.png">
+    </div>
+    <div class="switch">
+      <div>
+        <p [class.active]="type==1" (click)="changeType(1)">支出</p>
+        <p [class.active]="type==2" (click)="changeType(2)">收入</p>
+      </div>
+    </div>
+  </div>
+  <div class="table_head" *ngIf="type==1">
+    <div>总支出：{{defray|number:'1.2-2'}} 元</div>
+    <div>每日平均：{{defray/30|number:'1.2-2'}} 元</div>
+  </div>
+  <div class="table_head" *ngIf="type==2">
+    <div>总收入：{{income|number:'1.2-2'}} 元</div>
+    <div>每日平均：{{income/30|number:'1.2-2'}} 元</div>
+  </div>
+  <div class="list">
+    <div class="title">排行榜</div>
+    <div class="item" *ngFor="let item of list">
+      <div class="icon">
+        <img [src]="item.icon">
+        <span>{{item.name}}</span>
+      </div>
+      <p>{{item.money|number:'1.2-2'}}</p>
+    </div>
+  </div>
+	<i-tab></i-tab>
+</div>
+
