@@ -44,7 +44,7 @@ class picker extends Component {
 		let m,arr;
 		this.props.value.forEach( (value, index) =>{
 			if(!this.props.option[index]){return false}
-			m=this.props.option[index].indexOf(value)
+			m=this.props.option[index].findIndex(v=>v==value)
 			if(m===-1){console.log('默认值设置错误');return false}
 			arr=this.state.topStyle
 			arr[index]=-m*this.state.height
